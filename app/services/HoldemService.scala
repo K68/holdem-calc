@@ -37,7 +37,7 @@ class HoldemService @Inject() (
       val pocket = csToList(pcs).asJava
       val board = csToList(bcs).asJava
       val result = HandOdds.opponentOdds(pocket, board)
-      val p = result.getPlayer.sum / result.getTotalHands
+      val p = (0.0 + result.getPlayer.sum) / result.getTotalHands
       val hands = csToList(pcs ++ bcs).asJava
       val hand = HandAnalyzer.rankHand(hands).getHandAnalyzerResult
       Json.obj("p" -> p, "h" -> hand.getHand, "r" -> hand.getRank)
