@@ -1,0 +1,10 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /api/hello-world                controllers.AdapterController.helloWorld()
+
+GET     /api/combinatorial-calculator   controllers.AdapterController.combinatorialCalculator(bc: Int)
+
+POST    /api/calculator                 controllers.AdapterController.calculator()
