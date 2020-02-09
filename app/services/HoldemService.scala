@@ -29,7 +29,10 @@ class HoldemService @Inject() (
   }
 
   private def csToList(cs: List[String]): List[Card] = {
-    cs.map{ i => new Card(i.head.toString, PokerSuit.bySuitShort(i.last)) }
+    cs.map{ i =>
+      val value = i.dropRight(1)
+      new Card(value, PokerSuit.bySuitShort(i.last))
+    }
   }
 
   def calculatorOpponentOdds(pcs: List[String], bcs: List[String]): JsValue = {
